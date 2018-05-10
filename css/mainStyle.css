@@ -1,0 +1,53 @@
+.mainContainer{
+    width: 100%;
+}
+#landingTitle{
+    width: 100%;
+    font-size: 5em;
+    color: black;
+    margin: 1em 0;
+    text-align: center
+}
+#landingButton{
+    width: 40%;
+    font-size: 3em;
+    padding: 1em;
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0 30%;
+}
+.header{
+    background-color: springgreen;
+    width: 100%;
+    padding: .5em 0;
+}
+.mainTitle{
+    font-size: 5em;
+    color: black;
+}
+.navbar{
+    width: 8%;
+    background-color: blueviolet;
+    padding: 0 1%;
+    float: left;
+}
+.navItem{
+    font-size: 1em;
+    color: white;
+}
+.mainScreen{
+    width: 85%;
+    padding: 0 2.5%;
+    background-color: tomato;
+    float: left;
+}
+.form{
+    width: 90%;
+    margin: 5%;
+    float: left;
+}
+.formRow{
+    width: 100%;
+}
