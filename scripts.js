@@ -14,14 +14,16 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// INITIAL PAGE SETUP
 
+// landing page "get started" button to go to input form
     $("body").on("click", "#landingButton", function(event){
     event.preventDefault();
     $(".mainContainer").empty()
 //Header
     $(".mainContainer").append("<div class='header' id='mainHeader'>")
     $("#mainHeader").append("<h1 id='mainTitle'>")
-    $("#mainTitle").text("HomeBrew")
+    $("#mainTitle").text("JoBrew")
 //Navbar
     $(".mainContainer").append("<div class='navbar' id='mainNav'>")
     $("#mainNav").append("<div class='navItem' id='navRecent'>")
@@ -35,18 +37,18 @@ var database = firebase.database();
 //Form    
     $("#mainSection").append("<form class='form' id='mainForm'>")
     $("#mainForm").append("<row class='formRow'>")
-//User input field for SOMETHING
-    $(".formRow").append("<label id='tagSOMETHING' for='SOMETHING'>");
-    $(".formRow").append("<input class='formInput' id='SOMETHING' type='text' maxlength='30'>");
-    $("#tagSOMETHING").text("SOMETHING");
-//User input field for SOMETHING ELSE
-    $(".formRow").append("<label id='tagSOMETHINGELSE' for='SOMETHINGELSE'>");  
-    $(".formRow").append("<input class='formInput' id='SOMETHINGELSE' type='text' maxlength='30'>");
-    $("#tagSOMETHINGELSE").text("SOMETHINGELSE");
-//User input field for SOMETHING ELSE
-    $(".formRow").append("<label id='tagSOMETHINGELSE' for='SOMETHINGELSE'>");  
-    $(".formRow").append("<input class='formInput' id='SOMETHINGELSE' type='text' maxlength='30'>");
-    $("#tagSOMETHINGELSE").text("SOMETHINGELSE");
+//User input field for name
+    $(".formRow").append("<label id='tagName' for='name'>");
+    $(".formRow").append("<input class='formInput' id='name' type='text' maxlength='30'>");
+    $("#tagName").text("your name");
+//User input field for city
+    $(".formRow").append("<label id='tagCity' for='city'>");  
+    $(".formRow").append("<input class='formInput' id='city' type='text' maxlength='30'>");
+    $("#tagCity").text("city");
+//User input field for state
+    $(".formRow").append("<label id='tagState' for='state'>");  
+    $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
+    $("#tagState").text("state");
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>")
     $("#mainButton").text("Submit")
