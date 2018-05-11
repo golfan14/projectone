@@ -14,7 +14,11 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+
+
 // INITIAL PAGE SETUP
+// 
+// 
 
 // landing page "get started" button to go to input form
     $("body").on("click", "#landingButton", function(event){
@@ -56,4 +60,37 @@ var database = firebase.database();
     $("#mainSection").append("<div class='returnDiv' id='returnSection'>")
 //Div for dynamically showing the map is on you guys since it will be part of a function
     })
+
+// 
+// 
+// END OF INITIAL PAGE SETUP
+
+
+// CORE FUNCTIONALITY
+// 
+// 
+
+// Click event for input submission, storing, ajax call to get job listings based on inputs, use that call's return for google map inputs
+$("body").on("click", "#mainButton", function() {
+    event.preventDefault();
+
+    var name = $("#name").value().trim();
+    var city = $("#city").value().trim().replace(/\s/g, '').toLowerCase(); //remove spaces and lower case whatever the user typed in for city - makes it friendly with the url for ajax call
+    var state = $("#state").value().trim().toLowerCase();
+    console.log("inputs: " + name + " " + city + " " + state);
+
+    // ajax call for job listings (currently locked to us - add another input for country and update the queryURL to unlock the whole world)
+    var queryURL = "https://authenticjobs.com/api/?api_key=0854de619531fb9f56239e402fe78e1f&method=aj.jobs.search&location=" + city + state + "us&format=json";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        // store job listing array from response
+        var jobsArray = response.listings.listing;
+        // render list of 10 clickable listings (first ten from response)
+        
+    })
+})
+
 })
