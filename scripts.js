@@ -20,13 +20,13 @@ $(document).ready(function() {
     $("#mainSection").append("<form class='form' id='mainForm'>")
     $("#mainForm").append("<row class='formRow'>")
 //User input field for SOMETHING
-    $(".formRow").append("<input class='formInput' id='SOMETHING' type='text' maxlength='30'>");
     $(".formRow").append("<label id='tagSOMETHING' for='SOMETHING'>");
     $("#tagSOMETHING").text("SOMETHING");
+    $(".formRow").append("<input class='formInput' id='SOMETHING' type='text' maxlength='30'>");
 //User input field for SOMETHING ELSE
-    $(".formRow").append("<input class='formInput' id='SOMETHINGELSE' type='text' maxlength='30'>");
     $(".formRow").append("<label id='tagSOMETHINGELSE' for='SOMETHINGELSE'>");
     $("#tagSOMETHINGELSE").text("SOMETHINGELSE");
+    $(".formRow").append("<input class='formInput' id='SOMETHINGELSE' type='text' maxlength='30'>");
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>")
     $("#mainButton").text("Submit")
