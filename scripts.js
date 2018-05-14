@@ -9,15 +9,14 @@ $(document).ready(function() {
 
 // INITIALIZE FIREBASE AND STORE THE DATA IN VARIABLE 'database'
 var config = {
-    apiKey: "AIzaSyBw-1_TEm8sv798vjUwPtDoN3TJMP1qQGs",
-    authDomain: "group-project-1-f306f.firebaseapp.com",
-    databaseURL: "https://group-project-1-f306f.firebaseio.com",
-    projectId: "group-project-1-f306f",
+    apiKey: "AIzaSyBDxJlGWgOgE9_wxHmXOt3_A5WnGFixw_s",
+    authDomain: "class-project-1-203715.firebaseapp.com",
+    databaseURL: "https://class-project-1-203715.firebaseio.com",
+    projectId: "class-project-1-203715",
     storageBucket: "",
-    messagingSenderId: "268163003813"
-};
-
-firebase.initializeApp(config);
+    messagingSenderId: "344533296777"
+  };
+  firebase.initializeApp(config);
 
 var database = firebase.database();
 
