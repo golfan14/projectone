@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+// GLOBAL VARIABLES
+var jobLocations = [];
+
 // INITIALIZE FIREBASE AND STORE THE DATA IN VARIABLE 'database'
 var config = {
     apiKey: "AIzaSyBw-1_TEm8sv798vjUwPtDoN3TJMP1qQGs",
@@ -23,13 +26,26 @@ var database = firebase.database();
 // landing page "get started" button to go to input form
     $("body").on("click", "#landingButton", function(event){
     event.preventDefault();
+    $("body").css("background", "none");
     $(".mainContainer").empty();
 //Header
     $(".mainContainer").append("<div class='header' id='mainHeader'>");
     $("#mainHeader").append("<h1 id='mainTitle'>");
     $("#mainTitle").text("JoBrew");
+//hamburger
+    $(".header").append('<div class="container">');
+    $(".container").append('<div class="bar1">')
+    $(".container").append('<div class="bar2">')
+    $(".container").append('<div class="bar3">')
+    $("body").on("click", ".container", function(){
+        $(".navbar").addClass("showNav")
+        $(".navItem").addClass("NewnavItem")
+        $(".navItem").removeClass("navItem")
+    })
 //Navbar
     $(".mainContainer").append("<div class='navbar' id='mainNav'>");
+    $("#mainNav").append("<div class='navItem' id='navSearch'>");
+    $("#navSearch").text("Search");
     $("#mainNav").append("<div class='navItem' id='navRecent'>");
     $("#navRecent").text("Recent");
 //Footer
@@ -44,18 +60,19 @@ var database = firebase.database();
 //User input field for name
     $(".formRow").append("<label id='tagName' for='name'>");
     $(".formRow").append("<input class='formInput' id='name' type='text' maxlength='30'>");
-    $("#tagName").text("your name");
+    $("#tagName").text("Your name");
 //User input field for city
     $(".formRow").append("<label id='tagCity' for='city'>");  
     $(".formRow").append("<input class='formInput' id='city' type='text' maxlength='30'>");
-    $("#tagCity").text("city");
+    $("#tagCity").text("City");
 //User input field for state
     $(".formRow").append("<label id='tagState' for='state'>");  
     $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
-    $("#tagState").text("state");
+    $("#tagState").text("State (ex: NY)");
+
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
-    $("#mainButton").text("Submit");
+    $("#mainButton").text("Search");
 //Div to dynamically recieve API info. Basically everything you guys do should end up here in some fashion.
     $("#mainSection").append("<div class='returnDiv' id='returnSection'>");
 //Div for dynamically showing the map is on you guys since it will be part of a function
@@ -101,9 +118,31 @@ $("body").on("click", "#mainButton", function() {
         // store job listing array from response
         var jobsArray = response.listings.listing;
         console.log(jobsArray);
-        // render list of 10 clickable listings (first ten from response)
-
+        // render list of up to 10 listings (first ten from response) and store their location info into jobLocations array
+        //  -each will have a unique id that will be targeted for click event
+        $("#returnSection").append("<ul id='listings'>");
+        for (var i = 0; i < jobsArray.length; i++) {
+            // renders list
+            $("#listings").append("<li id='listing" + i + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
+            // stores location info in objects within jobLocations array
+            jobLocations.push({
+                city: jobsArray[i].company.location.city,
+                lat: jobsArray[i].company.location.lat,
+                long: jobsArray[i].company.location.lng
+            });
+        }
+        console.log(jobLocations);
+        
     })
+// clear the input fields after submitting
+$("#name").text(" ");
+$("#city").text(" ");
+$("#state").text(" ");
 })
+
+// click event for displaying map when a job listing is clicked
+$("body").on("click", "#listings li", function() {
+    // code here for displaying map based on location of listing that was clicked
+}) 
 
 })
