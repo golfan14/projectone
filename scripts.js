@@ -32,6 +32,16 @@ var database = firebase.database();
     $(".mainContainer").append("<div class='header' id='mainHeader'>");
     $("#mainHeader").append("<h1 id='mainTitle'>");
     $("#mainTitle").text("JoBrew");
+//hamburger
+    $(".header").append('<div class="container">');
+    $(".container").append('<div class="bar1">')
+    $(".container").append('<div class="bar2">')
+    $(".container").append('<div class="bar3">')
+    $("body").on("click", ".container", function(){
+        $(".navbar").addClass("showNav")
+        $(".navItem").addClass("NewnavItem")
+        $(".navItem").removeClass("navItem")
+    })
 //Navbar
     $(".mainContainer").append("<div class='navbar' id='mainNav'>");
     $("#mainNav").append("<div class='navItem' id='navSearch'>");

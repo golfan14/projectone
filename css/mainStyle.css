@@ -1,8 +1,9 @@
-@media screen and (min-width: 1440px){
+@media screen and (min-width: 1280px) and (max-width: 2000px){
 body, html{
     height: 100%;
     width: 100%;
     overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
     background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
@@ -89,14 +90,17 @@ body{
     border: black;
     border-width: 2px;
     border-style: solid;
+    width: 10%;
+    padding: 0 1%;
 }
 #tagName, #tagCity, #tagState{
     font-size: 2em;
     color: wheat;
     font-weight: bold;
-    margin-top: 1%;
+    margin-top: .5%;
     margin-right: 2%;
     float: left;
+    -webkit-text-stroke: 1px black;
 }
 #mainButton {
     float: left;
@@ -126,3 +130,721 @@ body{
     color: white;
 }
 }
+@media screen and (min-width: 2000px){
+    body, html{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body{
+        background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
+        background-repeat:no-repeat;
+        background-size: 100%; 
+    }
+    .mainContainer{
+        width: 100%;
+        height: 94.7%;
+        overflow: hidden;
+    }
+    #landingTitle{
+        width: 100%;
+        font-size: 10em;
+        color:White;
+        margin: 5% 0;
+        text-align: center
+    }
+    #landingButton{
+        width: 40%;
+        font-size: 3em;
+        padding: 5%;
+        background-color: blue;
+        color: white;
+        border-radius: 8px;
+        border: black;
+        border-width: 5px;
+        border-style: solid;
+        text-align: center;
+        margin: 0 30%;
+    }
+    .header{
+        background-color:black;
+        width: 100%;
+        height: 10%;
+        border-bottom-color: white;
+        border-bottom-style: solid;
+        border-bottom-width: .2em; 
+    }
+    #mainTitle{
+        color: white;
+        font-size: 5em;
+        text-align: center;
+    }
+    .navbar{
+        width: 7.7%;
+        background-color: rgb(0, 0, 0);
+        padding: 0 1%;
+        height: 89.7%;
+        float: left;
+        border-right-color: white;
+        border-right-style: solid;
+        border-right-width: .2em;
+    }
+    .navItem{
+        font-size: 2em;
+        color: white;
+        text-align: center;
+        margin: 10% 0;
+    }
+    .mainScreen{
+        width: 90%;
+        background-image: url(https://visitmontgomery.com/wp-content/uploads/2015/07/Flight.jpg);
+        background-repeat:no-repeat;
+        background-size: 100%;
+        background-color: rgb(61, 58, 58);
+        float: left;
+        height: 89.7%;
+        overflow-y: scroll;
+    }
+    .form{
+        width: 100%;
+        float: left;
+        height: 10%;
+        margin-top: 2%;
+    }
+    .formRow{
+        width: 100%;
+    }
+    .formInput{
+        height: 60%;
+        margin-right: 2%;
+        float: left;
+        border: black;
+        border-width: 2px;
+        border-style: solid;
+        width: 10%;
+        padding: 0 1%;
+    }
+    #tagName, #tagCity, #tagState{
+        font-size: 2em;
+        color: wheat;
+        font-weight: bold;
+        margin-top: 1%;
+        margin-right: 2%;
+        float: left;
+        -webkit-text-stroke: 1px black;
+    }
+    #mainButton {
+        float: left;
+        margin: .8% 2%;
+        height: 3.8em;
+        border-radius: 8px;
+        background-color: black;
+        color: white;
+        border: white;
+        border-style: solid;
+        border-width: 1px;
+        width: 10%;
+        font-weight: bold;
+    }
+    .footer{
+        background-color:black;
+        width: 100%;
+        height: 4.9%;
+        border-top-color: white;
+        border-top-style: solid;
+        border-top-width: .2em; 
+    }
+    #footerTitle{
+        margin-top: .3em;
+        font-size: 1em;
+        text-align: center;
+        color: white;
+    }
+    }
+    @media screen and (min-width: 1024px) and (max-width: 1279px){
+        body, html{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
+            background-repeat:no-repeat;
+            background-size: 100%; 
+        }
+        .mainContainer{
+            width: 100%;
+            height: 94.7%;
+            overflow: hidden;
+        }
+        #landingTitle{
+            width: 100%;
+            font-size: 10em;
+            color:White;
+            margin: 5% 0;
+            text-align: center
+        }
+        #landingButton{
+            width: 40%;
+            font-size: 3em;
+            padding: 5%;
+            background-color: blue;
+            color: white;
+            border-radius: 8px;
+            border: black;
+            border-width: 5px;
+            border-style: solid;
+            text-align: center;
+            margin: 0 30%;
+        }
+        .header{
+            background-color:black;
+            width: 100%;
+            height: 10%;
+            border-bottom-color: white;
+            border-bottom-style: solid;
+            border-bottom-width: .2em; 
+        }
+        #mainTitle{
+            color: white;
+            font-size: 4em;
+            text-align: center;
+        }
+        .navbar{
+            width: 7.7%;
+            background-color: rgb(0, 0, 0);
+            padding: 0 1%;
+            height: 89.7%;
+            float: left;
+            border-right-color: white;
+            border-right-style: solid;
+            border-right-width: .2em;
+        }
+        .navItem{
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            margin: 4% 0;
+        }
+        .mainScreen{
+            width: 89.9%;
+            background-image: url(https://visitmontgomery.com/wp-content/uploads/2015/07/Flight.jpg);
+            background-repeat:no-repeat;
+            background-size: 100%;
+            background-color: rgb(61, 58, 58);
+            float: left;
+            height: 89.7%;
+            overflow-y: scroll;
+        }
+        .form{
+            width: 100%;
+            float: left;
+            height: 10%;
+            margin-top: 2%;
+        }
+        .formRow{
+            width: 100%;
+        }
+        .formInput{
+            height: 60%;
+            margin-right: 2%;
+            float: left;
+            border: black;
+            border-width: 2px;
+            border-style: solid;
+            width: 9%;
+            padding: 0 1%;
+        }
+        #tagName, #tagCity, #tagState{
+            font-size: 1.7em;
+            color: wheat;
+            font-weight: bold;
+            margin-top: .5%;
+            margin-right: 2%;
+            float: left;
+            -webkit-text-stroke: 1px black;
+        }
+        #mainButton {
+            float: left;
+            height: 3em;
+            border-radius: 8px;
+            background-color: black;
+            color: white;
+            border: white;
+            border-style: solid;
+            border-width: 1px;
+            width: 10%;
+            font-weight: bold;
+        }
+        .footer{
+            background-color:black;
+            width: 100%;
+            height: 4.9%;
+            border-top-color: white;
+            border-top-style: solid;
+            border-top-width: .2em; 
+        }
+        #footerTitle{
+            margin-top: .3em;
+            font-size: 1em;
+            text-align: center;
+            color: white;
+        }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+            body, html{
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body{
+                background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
+                background-repeat:no-repeat;
+                background-size: 100%; 
+            }
+            .mainContainer{
+                width: 100%;
+                height: 94.7%;
+                overflow: hidden;
+            }
+            #landingTitle{
+                width: 100%;
+                font-size: 10em;
+                color:White;
+                margin: 5% 0;
+                text-align: center
+            }
+            #landingButton{
+                width: 40%;
+                font-size: 3em;
+                padding: 5%;
+                background-color: blue;
+                color: white;
+                border-radius: 8px;
+                border: black;
+                border-width: 5px;
+                border-style: solid;
+                text-align: center;
+                margin: 0 30%;
+            }
+            .header{
+                background-color:black;
+                width: 100%;
+                height: 10%;
+                border-bottom-color: white;
+                border-bottom-style: solid;
+                border-bottom-width: .2em; 
+            }
+            #mainTitle{
+                color: white;
+                font-size: 4em;
+                text-align: center;
+            }
+            .navbar{
+                width: 9.7%;
+                background-color: rgb(0, 0, 0);
+                padding: 0 1%;
+                height: 89.7%;
+                float: left;
+                border-right-color: white;
+                border-right-style: solid;
+                border-right-width: .2em;
+            }
+            .navItem{
+                font-size: 1.5em;
+                color: white;
+                text-align: center;
+                margin: 4% 0;
+            }
+            .mainScreen{
+                width: 86.9%;
+                background-image: url(https://visitmontgomery.com/wp-content/uploads/2015/07/Flight.jpg);
+                background-repeat:no-repeat;
+                background-size: 100%;
+                background-color: rgb(61, 58, 58);
+                float: left;
+                height: 89.7%;
+                overflow-y: scroll;
+            }
+            .form{
+                width: 100%;
+                float: left;
+                height: 10%;
+                margin-top: 2%;
+            }
+            .formRow{
+                width: 100%;
+            }
+            .formInput{
+                height: 60%;
+                margin-right: 2%;
+                float: left;
+                border: black;
+                border-width: 2px;
+                border-style: solid;
+                width: 50%;
+                padding: 0 1%;
+                margin-bottom: 1%;
+            }
+            #tagName, #tagCity, #tagState{
+                font-size: 1.7em;
+                color: wheat;
+                font-weight: bold;
+                margin-top: .5%;
+                margin-right: 2%;
+                float: left;
+                -webkit-text-stroke: 1px black;
+            }
+            #tagName{
+                margin-right: 8%;
+            }
+            #tagCity{
+                margin-right: 20.8%;
+            }
+            #name{
+                margin-right: 16%
+            }
+            #mainButton {
+                float: left;
+                height: 3em;
+                border-radius: 8px;
+                background-color: black;
+                color: white;
+                border: white;
+                border-style: solid;
+                border-width: 1px;
+                width: 15%;
+                font-weight: bold;
+            }
+            .footer{
+                background-color:black;
+                width: 100%;
+                height: 4.9%;
+                border-top-color: white;
+                border-top-style: solid;
+                border-top-width: .2em; 
+            }
+            #footerTitle{
+                margin-top: .3em;
+                font-size: 1em;
+                text-align: center;
+                color: white;
+            }
+            }
+            @media screen and (min-width: 425px) and (max-width: 767px){
+                body, html{
+                    height: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                body{
+                    background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
+                    background-repeat:no-repeat;
+                    background-size: 100%; 
+                    background-color: rgb(61, 58, 58);
+                }
+                .mainContainer{
+                    width: 100%;
+                    height: 94.7%;
+                    overflow: hidden;
+                }
+                #landingTitle{
+                    width: 100%;
+                    font-size: 5em;
+                    color:White;
+                    margin: 5% 0;
+                    text-align: center
+                }
+                #landingButton{
+                    width: 40%;
+                    font-size: 2em;
+                    padding: 5%;
+                    background-color: blue;
+                    color: white;
+                    border-radius: 8px;
+                    border: black;
+                    border-width: 5px;
+                    border-style: solid;
+                    text-align: center;
+                    margin: 0 30%;
+                }
+                .header{
+                    background-color:black;
+                    width: 100%;
+                    height: 10%;
+                    border-bottom-color: white;
+                    border-bottom-style: solid;
+                    border-bottom-width: .2em; 
+                }
+                #mainTitle{
+                    color: white;
+                    font-size: 4em;
+                    text-align: center;
+                }
+                .navbar{
+                    width: 15%;
+                    background-color: rgb(0, 0, 0);
+                    padding: 0 1%;
+                    height: 89.7%;
+                    float: left;
+                    border-right-color: white;
+                    border-right-style: solid;
+                    border-right-width: .2em;
+                }
+                .navItem{
+                    font-size: 1.3em;
+                    color: white;
+                    text-align: center;
+                    margin: 4% 0;
+                }
+                .mainScreen{
+                    width: 81.9%;
+                    background-image: url(https://visitmontgomery.com/wp-content/uploads/2015/07/Flight.jpg);
+                    background-repeat:no-repeat;
+                    background-size: 100%;
+                    background-color: rgb(61, 58, 58);
+                    float: left;
+                    height: 89.7%;
+                    overflow-y: scroll;
+                }
+                .form{
+                    width: 100%;
+                    float: left;
+                    height: 10%;
+                    margin-top: 2%;
+                }
+                .formRow{
+                    width: 100%;
+                }
+                .formInput{
+                    height: 60%;
+                    margin-right: 2%;
+                    float: left;
+                    border: black;
+                    border-width: 2px;
+                    border-style: solid;
+                    width: 50%;
+                    padding: 0 1%;
+                    margin-bottom: 1%;
+                }
+                #tagName, #tagCity, #tagState{
+                    font-size: 1.7em;
+                    color: wheat;
+                    font-weight: bold;
+                    margin-top: .5%;
+                    margin-right: 2%;
+                    float: left;
+                    -webkit-text-stroke: 1px black;
+                }
+                #tagName{
+                    margin-right: 8%;
+                }
+                #tagCity{
+                    margin-right: 50.8%;
+                }
+                #name{
+                    margin-right: 16%
+                }
+                #mainButton {
+                    float: left;
+                    height: 3em;
+                    border-radius: 8px;
+                    background-color: black;
+                    color: white;
+                    border: white;
+                    border-style: solid;
+                    border-width: 1px;
+                    width: 30%;
+                    font-weight: bold;
+                }
+                .footer{
+                    background-color:black;
+                    width: 100%;
+                    height: 4.9%;
+                    border-top-color: white;
+                    border-top-style: solid;
+                    border-top-width: .2em; 
+                }
+                #footerTitle{
+                    margin-top: .3em;
+                    font-size: 1em;
+                    text-align: center;
+                    color: white;
+                }
+                .container {
+                    display: inline-block;
+                    cursor: pointer;
+                }
+                
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: #333;
+                    margin: 6px 0;
+                    transition: 0.4s;
+                }
+            }
+        @media screen and (max-width: 424px){
+            body, html{
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body{
+                background-image: url(https://cdn.shopify.com/s/files/1/1772/0301/products/CKM_96.jpg?v=1494594961);
+                background-repeat:no-repeat;
+                background-size: 100%; 
+                background-color: rgb(61, 58, 58);
+            }
+            .mainContainer{
+                width: 100%;
+                height: 94.7%;
+                overflow: hidden;
+            }
+            #landingTitle{
+                width: 100%;
+                font-size: 5em;
+                color:White;
+                margin: 5% 0;
+                text-align: center
+            }
+            #landingButton{
+                width: 40%;
+                font-size: 2em;
+                padding: 5%;
+                background-color: blue;
+                color: white;
+                border-radius: 8px;
+                border: black;
+                border-width: 5px;
+                border-style: solid;
+                text-align: center;
+                margin: 0 30%;
+            }
+            .header{
+                background-color:black;
+                width: 100%;
+                height: 10%;
+                border-bottom-color: white;
+                border-bottom-style: solid;
+                border-bottom-width: .2em; 
+            }
+            #mainTitle{
+                color: white;
+                font-size: 4em;
+                text-align: center;
+                width: 90%;
+                float: left;
+            }
+            .showNav{
+                width: 90%;
+                background-color: rgb(0, 0, 0);
+                padding: 0 5%;
+                border-bottom-color: white;
+                border-bottom-style: solid;
+                border-bottom-width: .2em;
+            }
+            .navItem{
+                display: none;
+            }
+            .NewnavItem{
+                font-size: 2em;
+                color: white;
+                text-align: center;
+                margin: 4% 0;
+            }
+            .mainScreen{
+                width: 100%;
+                background-image: url(https://visitmontgomery.com/wp-content/uploads/2015/07/Flight.jpg);
+                background-repeat:no-repeat;
+                background-size: 100%;
+                background-color: rgb(61, 58, 58);
+                float: left;
+                height: 89.7%;
+                overflow-y: auto;
+            }
+            .form{
+                width: 100%;
+                float: left;
+                height: 10%;
+                margin-top: 2%;
+            }
+            .formRow{
+                width: 100%;
+            }
+            .formInput{
+                height: 60%;
+                margin-right: 2%;
+                float: left;
+                border: black;
+                border-width: 2px;
+                border-style: solid;
+                width: 90%;
+                padding: 0 1%;
+                margin-bottom: 1%;
+            }
+            #tagName, #tagCity, #tagState{
+                font-size: 1.7em;
+                color: wheat;
+                font-weight: bold;
+                margin-top: .5%;
+                margin-right: 2%;
+                float: left;
+                -webkit-text-stroke: 1px black;
+                margin-bottom: 1%;
+            }
+            #tagName{
+                margin-right: 8%;
+            }
+            #tagCity{
+                margin-right: 50.8%;
+            }
+            #name{
+                margin-right: 16%
+            }
+            #mainButton {
+                float: left;
+                height: 3em;
+                border-radius: 8px;
+                background-color: black;
+                color: white;
+                border: white;
+                border-style: solid;
+                border-width: 1px;
+                width: 30%;
+                font-weight: bold;
+            }
+            .footer{
+                background-color:black;
+                width: 100%;
+                height: 4.9%;
+                border-top-color: white;
+                border-top-style: solid;
+                border-top-width: .2em; 
+            }
+            #footerTitle{
+                margin-top: .3em;
+                font-size: 1em;
+                text-align: center;
+                color: white;
+            }
+            .container {
+                cursor: pointer;
+                width: 10%;
+                float: left;
+                margin-top: 3%;
+            }
+            
+            .bar1, .bar2, .bar3 {
+                width: 35px;
+                height: 5px;
+                background-color: white;
+                margin: 6px 0;
+                transition: 0.4s;
+            }
+        }
