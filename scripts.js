@@ -39,6 +39,7 @@ var database = firebase.database();
 //Main screen where basically everything happens
     $(".mainContainer").append("<div class='mainScreen' id='mainSection'>");
 //Form    
+
     $("#mainSection").append("<form class='form' id='mainForm'>");
     $("#mainForm").append("<row class='formRow'>");
 //User input field for name
@@ -53,6 +54,7 @@ var database = firebase.database();
     $(".formRow").append("<label id='tagState' for='state'>");  
     $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
     $("#tagState").text("state");
+
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
     $("#mainButton").text("Submit");
