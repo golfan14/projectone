@@ -30,6 +30,7 @@ var database = firebase.database();
 // landing page "get started" button to go to input form
     $("body").on("click", "#landingButton", function(event){
     event.preventDefault();
+    $("body").css("background", "none");
     $(".mainContainer").empty();
 //Header
     $(".mainContainer").append("<div class='header' id='mainHeader'>");
@@ -37,6 +38,8 @@ var database = firebase.database();
     $("#mainTitle").text("JoBrew");
 //Navbar
     $(".mainContainer").append("<div class='navbar' id='mainNav'>");
+    $("#mainNav").append("<div class='navItem' id='navSearch'>");
+    $("#navSearch").text("Search");
     $("#mainNav").append("<div class='navItem' id='navRecent'>");
     $("#navRecent").text("Recent");
 //Footer
@@ -46,25 +49,24 @@ var database = firebase.database();
 //Main screen where basically everything happens
     $(".mainContainer").append("<div class='mainScreen' id='mainSection'>");
 //Form    
-
     $("#mainSection").append("<form class='form' id='mainForm'>");
     $("#mainForm").append("<row class='formRow'>");
 //User input field for name
     $(".formRow").append("<label id='tagName' for='name'>");
     $(".formRow").append("<input class='formInput' id='name' type='text' maxlength='30'>");
-    $("#tagName").text("your name");
+    $("#tagName").text("Your name");
 //User input field for city
     $(".formRow").append("<label id='tagCity' for='city'>");  
     $(".formRow").append("<input class='formInput' id='city' type='text' maxlength='30'>");
-    $("#tagCity").text("city");
+    $("#tagCity").text("City");
 //User input field for state
     $(".formRow").append("<label id='tagState' for='state'>");  
     $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
-    $("#tagState").text("state (ex: NY)");
+    $("#tagState").text("State (ex: NY)");
 
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
-    $("#mainButton").text("Submit");
+    $("#mainButton").text("Search");
 //Div to dynamically recieve API info. Basically everything you guys do should end up here in some fashion.
     $("#mainSection").append("<div class='returnDiv' id='returnSection'>");
 //Div for dynamically showing the map is on you guys since it will be part of a function
