@@ -149,13 +149,13 @@ $("body").on("click", "#listings .listing", function() {
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
             location: posting,
-            radius: 50000,
+            radius: 16093.4,
             keyword: ['brewery'],
         }, callback);
         var service2 = new google.maps.places.PlacesService(map);
         service.nearbySearch({
             location: posting,
-            radius: 50000,
+            radius: 16093.4,
             keyword: [$(this).attr("data-name")],
         }, callback);    
     } else {
@@ -169,14 +169,37 @@ $("body").on("click", "#listings .listing", function() {
             }
         }
     }
+
+    function callback2(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                createMarker2(results[i]);
+            }
+        }
+    }
     
     function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
             map: map,
             position: place.geometry.location
         });
     
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+
+    function createMarker2(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            animation: google.maps.Animation.BOUNCE,
+            map: map,
+            position: place.geometry.location
+        });  
+
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.setContent(place.name);
             infowindow.open(map, this);
