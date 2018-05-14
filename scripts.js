@@ -1,7 +1,11 @@
+var mapsLoaded = false;
+function initMap() {
+    mapsLoaded = true;
+}
+
+
 $(document).ready(function() {
 
-// GLOBAL VARIABLES
-var jobLocations = [];
 
 // INITIALIZE FIREBASE AND STORE THE DATA IN VARIABLE 'database'
 var config = {
@@ -78,11 +82,11 @@ var database = firebase.database();
 // 
 
 // CORS
-jQuery.ajaxPrefilter(function(options) {
-    if (options.crossDomain && jQuery.support.cors) {
-        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-    }
-});
+// jQuery.ajaxPrefilter(function(options) {
+//     if (options.crossDomain && jQuery.support.cors) {
+//         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+//     }
+// });
 
 // Click event for input submission, storing, ajax call to get job listings based on inputs, use that call's return for google map inputs
 $("body").on("click", "#mainButton", function() {
@@ -97,7 +101,7 @@ $("body").on("click", "#mainButton", function() {
 
 
     // ajax call for job listings (currently locked to us - add another input for country and update the queryURL to unlock the whole world)
-    var queryURL = "https://authenticjobs.com/api/?api_key=0854de619531fb9f56239e402fe78e1f&method=aj.jobs.search&location=" + city + state + "us&format=json";
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://authenticjobs.com/api/?api_key=0854de619531fb9f56239e402fe78e1f&method=aj.jobs.search&location=" + city + state + "us&format=json";
     
     
     $.ajax({
@@ -113,15 +117,8 @@ $("body").on("click", "#mainButton", function() {
         $("#returnSection").append("<ul id='listings'>");
         for (var i = 0; i < jobsArray.length; i++) {
             // renders list
-            $("#listings").append("<li id='listing" + i + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
-            // stores location info in objects within jobLocations array
-            jobLocations.push({
-                city: jobsArray[i].company.location.city,
-                lat: jobsArray[i].company.location.lat,
-                long: jobsArray[i].company.location.lng
-            });
+            $("#listings").append("<li class='listing' data-name='" + jobsArray[i].company.id + "' data-lat='" + jobsArray[i].company.location.lat + "' data-lng='" + jobsArray[i].company.location.lng + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
         }
-        console.log(jobLocations);
         
     })
 // clear the input fields after submitting
@@ -131,8 +128,62 @@ $("#state").text(" ");
 })
 
 // click event for displaying map when a job listing is clicked
-$("body").on("click", "#listings li", function() {
+$("body").on("click", "#listings .listing", function() {
+    console.log("successfully recognized click on listing for: " + $(this).attr("data-name"));
     // code here for displaying map based on location of listing that was clicked
+    var map;
+    var infowindow;
+    
+    if (mapsLoaded) {
+        console.log("dispMap() is running");
+        // $("returnSection").append('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDugDqK5S-d1MmeNJ1GkfddoYc2kJL7Chw&libraries=places&callback=initMap"></script>');
+
+        var posting = { lat: parseInt($(this).attr("data-lat")), lng: parseInt($(this).attr("data-lng")) };
+    
+        map = new google.maps.Map(document.getElementById('mainSection'), {
+            center: posting,
+            zoom: 13
+        });
+    
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: posting,
+            radius: 50000,
+            keyword: ['brewery'],
+        }, callback);
+        var service2 = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: posting,
+            radius: 50000,
+            keyword: [$(this).attr("data-name")],
+        }, callback);    
+    } else {
+        console.log("Error: Google Maps isn't loaded yet.")
+    }
+    
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+            }
+        }
+    }
+    
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+    
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+    
+
 }) 
 
 })
