@@ -129,6 +129,7 @@ body{
     text-align: center;
     color: white;
 }
+
 }
 @media screen and (min-width: 2000px){
     body, html{
@@ -837,3 +838,11 @@ body{
                 transition: 0.4s;
             }
         }
+
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+ #map {
+    height: 100%;
+  }
+  
