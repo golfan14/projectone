@@ -55,7 +55,7 @@ var database = firebase.database();
 //User input field for state
     $(".formRow").append("<label id='tagState' for='state'>");  
     $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
-    $("#tagState").text("state");
+    $("#tagState").text("state (ex: NY)");
 //Submit button for our input fields
     $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
     $("#mainButton").text("Submit");
@@ -105,11 +105,11 @@ $("body").on("click", "#mainButton", function() {
         var jobsArray = response.listings.listing;
         console.log(jobsArray);
         // render list of up to 10 listings (first ten from response) and store their location info into jobLocations array
-        //  -each will have a unique id (same as id in response) that will be targeted for click event
+        //  -each will have a unique id that will be targeted for click event
         $("#returnSection").append("<ul id='listings'>");
         for (var i = 0; i < jobsArray.length; i++) {
             // renders list
-            $("#listings").append("<li id='" + jobsArray[i].id + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
+            $("#listings").append("<li id='listing" + i + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
             // stores location info in objects within jobLocations array
             jobLocations.push({
                 city: jobsArray[i].company.location.city,
@@ -120,6 +120,15 @@ $("body").on("click", "#mainButton", function() {
         console.log(jobLocations);
         
     })
+// clear the input fields after submitting
+$("#name").text(" ");
+$("#city").text(" ");
+$("#state").text(" ");
 })
+
+// click event for displaying map when a job listing is clicked
+$("body").on("click", "#listings li", function() {
+    // code here for displaying map based on location of listing that was clicked
+}) 
 
 })
