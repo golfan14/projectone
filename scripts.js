@@ -106,6 +106,10 @@ $("body").on("click", "#mainButton", function() {
     var state = $("#state").val().trim().toLowerCase();
     console.log("inputs: " + name + " " + city + " " + state);
 
+    if (state.length > 2) {
+        alert("State is two letters")
+    }
+
 
 
 
