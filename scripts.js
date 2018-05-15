@@ -51,6 +51,7 @@ var database = firebase.database();
     $("#navSearch").text("Search");
     $("#mainNav").append("<div class='navItem' id='navRecent'>");
     $("#navRecent").text("Recent");
+    $("#mainNav").append("<div class='navItem' id='recent'>")
 //Footer
     $("body").append("<div class='footer' id='mainFooter'>");
     $("#mainFooter").append("<h6 id='footerTitle'>");
@@ -106,8 +107,13 @@ $("body").on("click", "#mainButton", function() {
     var state = $("#state").val().trim().toLowerCase();
     console.log("inputs: " + name + " " + city + " " + state);
 
+    database.ref().set({
+        name: name,
+        city: city,
+        state: state,
+    });
 
-
+   
 
     // ajax call for job listings (currently locked to us - add another input for country and update the queryURL to unlock the whole world)
     var queryURL = "https://cors-anywhere.herokuapp.com/https://authenticjobs.com/api/?api_key=0854de619531fb9f56239e402fe78e1f&method=aj.jobs.search&location=" + city + state + "us&format=json";
@@ -218,4 +224,19 @@ $("body").on("click", "#listings .listing", function() {
 
 }) 
 
+database.ref().on("value", function(snapshot) {
+
+    console.log(snapshot.val().name+ " just searched in " + snapshot.val().city + ", " + snapshot.val().state);
+
+    // Change the HTML to reflect
+    $("#recent").text(snapshot.val().name+ " just searched in " + snapshot.val().city + ", " + snapshot.val().state);
+
+   // Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+
 })
+
+
