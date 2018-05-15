@@ -98,6 +98,35 @@ var database = firebase.database();
 //     }
 // });
 
+// "new search" button functionality - clear main div and re-render input form
+$("body").on("click", "#navSearch", function() {
+    // remove main contents and re-render input form
+        $("#mainSection").empty();
+        //Form    
+        $("#mainSection").append("<form class='form' id='mainForm'>");
+        $("#mainForm").append("<row class='formRow'>");
+        //User input field for name
+        $(".formRow").append("<label id='tagName' for='name'>");
+        $(".formRow").append("<input class='formInput' id='name' type='text' maxlength='30'>");
+        $("#tagName").text("your name");
+        //User input field for city
+        $(".formRow").append("<label id='tagCity' for='city'>");  
+        $(".formRow").append("<input class='formInput' id='city' type='text' maxlength='30'>");
+        $("#tagCity").text("city");
+        //User input field for state
+        $(".formRow").append("<label id='tagState' for='state'>");  
+        $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
+        $("#tagState").text("state (ex: NY)");
+        //Submit button for our input fields
+        $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
+        $("#mainButton").text("Submit");
+        //Div to dynamically recieve API info
+        $("#mainSection").append("<div class='returnDiv' id='returnSection'>");
+    // remove map and re-render map div html
+        $("#mapDiv").empty();
+        $("#mapDiv").append('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDugDqK5S-d1MmeNJ1GkfddoYc2kJL7Chw&libraries=places&callback=initMap"></script>');
+    });
+
 // Click event for input submission, storing, ajax call to get job listings based on inputs, use that call's return for google map inputs
 $("body").on("click", "#mainButton", function() {
     event.preventDefault();
