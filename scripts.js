@@ -147,11 +147,11 @@ $("body").on("click", "#listings .listing", function() {
         console.log("dispMap() is running");
         // $("returnSection").append('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDugDqK5S-d1MmeNJ1GkfddoYc2kJL7Chw&libraries=places&callback=initMap"></script>');
 
-        var posting = { lat: parseInt($(this).attr("data-lat")), lng: parseInt($(this).attr("data-lng")) };
+        var posting = { lat: parseInt($(this).attr("data-lat"))+0.75, lng: parseInt($(this).attr("data-lng"))-0.9 };
     
         map = new google.maps.Map(document.getElementById('mainSection'), {
             center: posting,
-            zoom: 13
+            zoom: 11
         });
     
         infowindow = new google.maps.InfoWindow();
@@ -165,8 +165,8 @@ $("body").on("click", "#listings .listing", function() {
         service.nearbySearch({
             location: posting,
             radius: 16093.4,
-            keyword: [$(this).attr("data-name")],
-        }, callback);    
+            keyword: [$(this).attr("data-name")]
+        }, callback2);    
     } else {
         console.log("Error: Google Maps isn't loaded yet.")
     }
