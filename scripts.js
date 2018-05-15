@@ -147,7 +147,8 @@ $("body").on("click", "#listings .listing", function() {
         console.log("dispMap() is running");
         // $("returnSection").append('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDugDqK5S-d1MmeNJ1GkfddoYc2kJL7Chw&libraries=places&callback=initMap"></script>');
 
-        var posting = { lat: parseInt($(this).attr("data-lat"))+0.75, lng: parseInt($(this).attr("data-lng"))-0.9 };
+        var posting = { lat: parseFloat($(this).attr("data-lat")), lng: parseFloat($(this).attr("data-lng")) };
+        console.log(posting);
     
         map = new google.maps.Map(document.getElementById('mainSection'), {
             center: posting,
