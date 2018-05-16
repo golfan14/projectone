@@ -33,7 +33,7 @@ var database = firebase.database();
     $(".mainContainer").empty();
 //Header
     $(".mainContainer").append("<div class='header' id='mainHeader'>");
-    $("#mainHeader").append("<h1 id='mainTitle'>");
+    $("#mainHeader").append("<h1 class='animated fadeIn' id='mainTitle'>");
     $("#mainTitle").text("JoBrew");
 //hamburger
     $(".header").append('<div class="container">');
@@ -43,7 +43,9 @@ var database = firebase.database();
     $("body").on("click", ".container", function(){
         $(".navbar").addClass("showNav")
         $(".navItem").addClass("NewnavItem")
+        $("#recent").addClass("recent2")
         $(".navItem").removeClass("navItem")
+        $(".recent2").removeAttr("id", "recent")
     })
 //Navbar
     $(".mainContainer").append("<div class='navbar' id='mainNav'>");
@@ -51,10 +53,10 @@ var database = firebase.database();
     $("#navSearch").text("Search");
     $("#mainNav").append("<div class='navItem' id='navRecent'>");
     $("#navRecent").text("Recent");
-    $("#mainNav").append("<div class='navItem' id='recent'>")
+    $("#mainNav").append("<div id='recent'>")
 //Footer
     $("body").append("<div class='footer' id='mainFooter'>");
-    $("#mainFooter").append("<h6 id='footerTitle'>");
+    $("#mainFooter").append("<h6  class='animated fadeIn' id='footerTitle'>");
     $("#footerTitle").text("Copyright 2018");
 //Main screen where basically everything happens
     $(".mainContainer").append("<div class='mainScreen' id='mainSection'>");
@@ -102,21 +104,28 @@ var database = firebase.database();
 $("body").on("click", "#navSearch", function() {
     // remove main contents and re-render input form
         $("#mainSection").empty();
+        $("#mainNav").empty();
+        //navbar
+        $("#mainNav").append("<div class='navItem' id='navSearch'>");
+        $("#navSearch").text("Search");
+        $("#mainNav").append("<div class='navItem' id='navRecent'>");
+        $("#navRecent").text("Recent");
+        $("#mainNav").append("<div id='recent'>")
         //Form    
         $("#mainSection").append("<form class='form' id='mainForm'>");
         $("#mainForm").append("<row class='formRow'>");
         //User input field for name
         $(".formRow").append("<label id='tagName' for='name'>");
         $(".formRow").append("<input class='formInput' id='name' type='text' maxlength='30'>");
-        $("#tagName").text("your name");
+        $("#tagName").text("Your name");
         //User input field for city
         $(".formRow").append("<label id='tagCity' for='city'>");  
         $(".formRow").append("<input class='formInput' id='city' type='text' maxlength='30'>");
-        $("#tagCity").text("city");
+        $("#tagCity").text("City");
         //User input field for state
         $(".formRow").append("<label id='tagState' for='state'>");  
         $(".formRow").append("<input class='formInput' id='state' type='text' maxlength='30'>");
-        $("#tagState").text("state (ex: NY)");
+        $("#tagState").text("State (ex: NY)");
         //Submit button for our input fields
         $(".formRow").append("<button class='button' id='mainButton' type='submit'>");
         $("#mainButton").text("Submit");
@@ -167,7 +176,7 @@ $("body").on("click", "#mainButton", function() {
         $("#returnSection").append("<ul id='listings'>");
         for (var i = 0; i < jobsArray.length; i++) {
             // renders list
-            $("#listings").append("<li class='listing' data-name='" + jobsArray[i].company.id + "' data-lat='" + jobsArray[i].company.location.lat + "' data-lng='" + jobsArray[i].company.location.lng + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
+            $("#listings").append("<li class='listing animated bounceInLeft' data-name='" + jobsArray[i].company.id + "' data-lat='" + jobsArray[i].company.location.lat + "' data-lng='" + jobsArray[i].company.location.lng + "'>" + "JOB TITLE: " + jobsArray[i].title + " --  COMPANY: " + jobsArray[i].company.name + "\n</li><br>");
         }
         
     })
@@ -265,7 +274,7 @@ database.ref().on("value", function(snapshot) {
     console.log(snapshot.val().name+ " just searched in " + snapshot.val().city + ", " + snapshot.val().state);
 
     // Change the HTML to reflect
-    $("#recent").text(snapshot.val().name+ " just searched in " + snapshot.val().city + ", " + snapshot.val().state);
+    $("#recent").html(snapshot.val().name+ "<br> just searched in: <br>" + snapshot.val().city + ", " + snapshot.val().state);
 
    // Handle the errors
   }, function(errorObject) {
